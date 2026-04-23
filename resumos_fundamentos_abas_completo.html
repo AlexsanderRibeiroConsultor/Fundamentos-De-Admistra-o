@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fundamentos de Administração - Resumos em Abas</title>
+  <style>
+    :root{
+      --azul:#1f4e79;
+      --verde:#0f766e;
+      --laranja:#b45309;
+      --vermelho:#991b1b;
+      --roxo:#5b21b6;
+      --cinza:#f3f4f6;
+      --texto:#111827;
+      --muted:#4b5563;
+      --linha:#d1d5db;
+      --card:#ffffff;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--cinza);
+      color:var(--texto);
+      line-height:1.55;
+    }
+    header{
+      background:linear-gradient(135deg,var(--azul),var(--verde));
+      color:white;
+      padding:32px 22px;
+      text-align:center;
+    }
+    header h1{margin:0 0 8px;font-size:2rem}
+    header p{margin:0;font-size:1rem;opacity:.95}
+    .tabs{
+      position:sticky;
+      top:0;
+      z-index:5;
+      display:flex;
+      background:white;
+      border-bottom:1px solid var(--linha);
+      box-shadow:0 3px 12px rgba(0,0,0,.08);
+    }
+    .tab{
+      flex:1;
+      border:0;
+      padding:16px 12px;
+      background:white;
+      font-weight:700;
+      cursor:pointer;
+      color:var(--muted);
+      font-size:1rem;
+    }
+    .tab.active{
+      color:var(--azul);
+      border-bottom:4px solid var(--azul);
+      background:#f8fafc;
+    }
+    main{max-width:1180px;margin:24px auto;padding:0 18px}
+    .content{display:none}
+    .content.active{display:block}
+    .card{
+      background:var(--card);
+      border:1px solid var(--linha);
+      border-radius:16px;
+      padding:22px;
+      margin-bottom:18px;
+      box-shadow:0 7px 18px rgba(0,0,0,.06);
+    }
+    h2{color:var(--azul);margin-top:0;border-bottom:2px solid #e5e7eb;padding-bottom:8px}
+    h3{color:var(--verde);margin-bottom:8px}
+    h4{margin:12px 0 6px;color:#1f2937}
+    ul,ol{padding-left:23px}
+    li{margin-bottom:7px}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+    .box{
+      border-left:5px solid var(--azul);
+      background:#eff6ff;
+      padding:14px 16px;
+      border-radius:12px;
+      margin:12px 0;
+    }
+    .practice{border-left-color:var(--verde);background:#ecfdf5}
+    .exam{border-left-color:var(--vermelho);background:#fef2f2}
+    .related{border-left-color:var(--roxo);background:#f5f3ff}
+    .attention{border-left-color:var(--laranja);background:#fff7ed}
+    table{
+      width:100%;
+      border-collapse:collapse;
+      margin:12px 0 18px;
+      font-size:.95rem;
+    }
+    th,td{border:1px solid var(--linha);padding:10px;vertical-align:top}
+    th{background:#e0f2fe;color:#0f3a5c;text-align:left}
+    .pill{
+      display:inline-block;
+      padding:5px 10px;
+      border-radius:999px;
+      background:#e0f2fe;
+      color:#075985;
+      margin:3px 4px 3px 0;
+      font-size:.86rem;
+      font-weight:700;
+    }
+    .small{color:var(--muted);font-size:.92rem}
+    .checklist li{list-style:"✓  "}
+    .questoes li{margin-bottom:10px}
+    @media(max-width:900px){
+      .grid,.grid3{grid-template-columns:1fr}
+      .tabs{position:static;display:block}
+      .tab{display:block;width:100%}
+    }
+    @media print{
+      .tabs{display:none}
+      .content{display:block}
+      body{background:white}
+      .card{box-shadow:none;break-inside:avoid}
+    }
+  </style>
+  <script>
+    function openTab(i){
+      const tabs=document.querySelectorAll('.tab');
+      const contents=document.querySelectorAll('.content');
+      tabs.forEach((t,idx)=>{
+        t.classList.toggle('active',idx===i);
+        contents[idx].classList.toggle('active',idx===i);
+      });
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+    window.onload=function(){openTab(0)}
+  </script>
+</head>
+<body>
+<header>
+  <h1>Fundamentos de Administração</h1>
+  <p>Dois resumos completos em abas, com prática aplicada e possíveis temas de prova.</p>
+</header>
+
+<div class="tabs">
+  <button class="tab" onclick="openTab(0)">Material 1: Papéis do Administrador, Negociação e Conflitos</button>
+  <button class="tab" onclick="openTab(1)">Material 2: Teoria da Burocracia</button>
+</div>
+
+<main>
+<section class="content">
+
+  <div class="card">
+    <h2>Material 1 — Papéis do Administrador, Negociação e Mediação de Conflitos</h2>
+    <span class="pill">Mintzberg</span>
+    <span class="pill">Gestão de pessoas</span>
+    <span class="pill">Tomada de decisão</span>
+    <span class="pill">Negociação</span>
+    <span class="pill">Conflitos organizacionais</span>
+
+    <div class="box">
+      <strong>Resumo executivo:</strong> o administrador atua como agente de integração entre pessoas, informações e decisões. 
+      A aula aprofunda os 10 papéis gerenciais de Mintzberg e conecta esses papéis à prática de negociação, liderança, solução de problemas e mediação de conflitos.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>1. O que a aula retoma</h3>
+    <p>O material parte de conteúdos já vistos em Fundamentos de Administração:</p>
+    <ul>
+      <li>Conceito de organizações.</li>
+      <li>Os quatro elementos da administração.</li>
+      <li>Níveis da administração: estratégico, tático e operacional.</li>
+      <li>Funções administrativas.</li>
+      <li>Níveis organizacionais e habilidades requeridas.</li>
+      <li>Competências, habilidades e papéis do administrador.</li>
+    </ul>
+
+    <div class="attention">
+      <strong>Como interpretar:</strong> essa retomada mostra que os papéis do administrador não ficam isolados. Eles aparecem dentro dos níveis organizacionais, das funções administrativas e das competências exigidas para gerir pessoas, processos e resultados.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>2. Os 10 papéis do administrador segundo Mintzberg</h3>
+    <p>
+      Mintzberg agrupou os papéis gerenciais em três grandes categorias: interpessoais, informacionais e decisoriais. 
+      Esses papéis representam comportamentos cotidianos do administrador profissional.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Categoria</th>
+          <th>Papel</th>
+          <th>Conceito</th>
+          <th>Exemplo prático</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="3"><strong>Interpessoal</strong></td>
+          <td>Representação ou símbolo</td>
+          <td>O gestor representa formalmente a organização em eventos, reuniões e atos institucionais.</td>
+          <td>Assinar documentos, receber visitantes, participar de cerimônias ou representar a empresa em evento externo.</td>
+        </tr>
+        <tr>
+          <td>Liderança</td>
+          <td>Responsabilidade por orientar, motivar, treinar e comunicar-se com subordinados.</td>
+          <td>Dar feedback, alinhar metas, conduzir reuniões de equipe e desenvolver pessoas.</td>
+        </tr>
+        <tr>
+          <td>Elemento de ligação</td>
+          <td>Criação e manutenção de redes de relacionamento dentro e fora da organização.</td>
+          <td>Construir parcerias com outras áreas, fornecedores, clientes e empresas parceiras.</td>
+        </tr>
+        <tr>
+          <td rowspan="3"><strong>Informacional</strong></td>
+          <td>Monitoração</td>
+          <td>Captação contínua de informações internas e externas.</td>
+          <td>Ler relatórios, acompanhar indicadores, conversar com equipe e observar mercado.</td>
+        </tr>
+        <tr>
+          <td>Disseminação</td>
+          <td>Distribuição de informações aos membros da organização.</td>
+          <td>Comunicar mudanças, repassar metas, compartilhar decisões e atualizar a equipe.</td>
+        </tr>
+        <tr>
+          <td>Porta-voz</td>
+          <td>Comunicação oficial da organização para públicos externos.</td>
+          <td>Falar com parceiros, fornecedores, imprensa, clientes ou instituições externas.</td>
+        </tr>
+        <tr>
+          <td rowspan="4"><strong>Decisorial</strong></td>
+          <td>Empreendedor</td>
+          <td>Criação de novas possibilidades, projetos, melhorias e inovações.</td>
+          <td>Lançar novo processo, produto, canal, projeto ou melhoria competitiva.</td>
+        </tr>
+        <tr>
+          <td>Solucionador de problemas</td>
+          <td>Resposta a crises, conflitos, falhas e mudanças críticas.</td>
+          <td>Resolver conflito entre equipes, contornar ruptura operacional ou lidar com pressão externa.</td>
+        </tr>
+        <tr>
+          <td>Alocador de recursos</td>
+          <td>Definição de prioridades para uso de pessoas, tempo, orçamento e materiais.</td>
+          <td>Distribuir verba, definir equipe, organizar agenda, priorizar projetos e controlar recursos escassos.</td>
+        </tr>
+        <tr>
+          <td>Negociador</td>
+          <td>Representação da organização em negociações internas e externas.</td>
+          <td>Negociar contratos, compras, vendas, metas, prazos, orçamento, conflitos e acordos.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>3. Negociação estratégica</h3>
+    <p>
+      A aula define negociação como uma prática ligada à administração de emoções, prevenção de conflitos e solução de problemas. 
+      Na gestão, negociar não é apenas “ganhar uma disputa”; é construir uma verdade comum, aceitável e operacional para as partes envolvidas.
+    </p>
+
+    <div class="practice">
+      <strong>Aplicação prática:</strong> em uma empresa, conflitos por orçamento, metas, comissões, autoridade ou prioridade de projetos exigem negociação. 
+      O gestor precisa ouvir, mapear interesses, separar fatos de percepções, propor alternativas e obter compromisso das partes.
+    </div>
+
+    <h4>Competências envolvidas na negociação</h4>
+    <ul>
+      <li>Escuta ativa.</li>
+      <li>Controle emocional.</li>
+      <li>Comunicação clara.</li>
+      <li>Análise de interesses e posições.</li>
+      <li>Capacidade de propor acordos viáveis.</li>
+      <li>Mediação entre áreas, pessoas e objetivos organizacionais.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>4. Estudo de caso — O dono das abóboras</h3>
+    <p>
+      João plantou abóboras em seu terreno, mas as ramagens avançaram para o terreno de André, onde floresceram e produziram frutos. 
+      João defendia o direito por ter plantado; André defendia o direito porque a produção estava em seu terreno. O juiz tentou acordo, mas ambos foram intransigentes. André venceu formalmente. João, irritado, arrancou as raízes.
+    </p>
+
+    <div class="attention">
+      <strong>Leitura administrativa:</strong> a decisão formal resolveu a disputa jurídica, mas não resolveu a relação nem preservou o resultado. 
+      Sem consenso, aceitação e compromisso coletivo, a solução pode virar perda para todos.
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>Elemento do caso</th><th>Interpretação para Administração</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>João plantou</td><td>Representa origem do esforço, investimento ou iniciativa.</td></tr>
+        <tr><td>André tinha a produção em seu terreno</td><td>Representa posse, operação, recurso físico ou impacto externo.</td></tr>
+        <tr><td>Falta de acordo</td><td>Demonstra falha de negociação e baixa maturidade de conflito.</td></tr>
+        <tr><td>Decisão do juiz</td><td>Solução formal, mas sem alinhamento emocional e relacional.</td></tr>
+        <tr><td>João arrancou as raízes</td><td>Perda de valor causada por ausência de consenso e mediação efetiva.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>5. Temas relacionados para ampliar a revisão</h3>
+    <div class="grid">
+      <div class="box related">
+        <strong>Liderança</strong>
+        <p>Relaciona-se ao papel interpessoal de liderança: motivar, treinar, orientar e alinhar esforços.</p>
+      </div>
+      <div class="box related">
+        <strong>Comunicação organizacional</strong>
+        <p>Conecta os papéis informacionais: monitorar, disseminar e atuar como porta-voz.</p>
+      </div>
+      <div class="box related">
+        <strong>Tomada de decisão</strong>
+        <p>Base dos papéis decisoriais: empreender, resolver problemas, alocar recursos e negociar.</p>
+      </div>
+      <div class="box related">
+        <strong>Gestão de conflitos</strong>
+        <p>Envolve mediação, escuta, análise de interesses, negociação e construção de acordos.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>6. Possíveis temas de prova — Material 1</h3>
+    <div class="exam">
+      <ol class="questoes">
+        <li><strong>Conceitual:</strong> explique as três categorias dos papéis gerenciais de Mintzberg.</li>
+        <li><strong>Associação:</strong> relacione cada papel do administrador a uma atividade prática.</li>
+        <li><strong>Estudo de caso:</strong> identifique qual papel o gestor está exercendo em uma situação de crise, reunião, negociação ou comunicação externa.</li>
+        <li><strong>Comparação:</strong> diferencie papel interpessoal, papel informacional e papel decisorial.</li>
+        <li><strong>Aplicação:</strong> explique por que a liderança é um papel contínuo do administrador.</li>
+        <li><strong>Negociação:</strong> defina negociação e relacione com prevenção e solução de conflitos.</li>
+        <li><strong>Caso das abóboras:</strong> analise por que uma decisão formal não garante solução eficaz se não houver aceitação coletiva.</li>
+        <li><strong>Gestão de conflitos:</strong> descreva atitudes esperadas de um bom administrador diante de conflitos organizacionais.</li>
+        <li><strong>Porta-voz:</strong> explique por que o gestor deve ter sensibilidade sobre o que pode ou não comunicar externamente.</li>
+        <li><strong>Alocação de recursos:</strong> explique como o gestor define prioridades em contexto de recursos escassos.</li>
+      </ol>
+    </div>
+  </div>
+
+</section>
+
+<section class="content">
+
+  <div class="card">
+    <h2>Material 2 — Teoria da Burocracia</h2>
+    <span class="pill">Max Weber</span>
+    <span class="pill">Organização formal</span>
+    <span class="pill">Racionalidade</span>
+    <span class="pill">Hierarquia</span>
+    <span class="pill">Disfunções burocráticas</span>
+
+    <div class="box">
+      <strong>Resumo executivo:</strong> a Teoria da Burocracia, formulada por Max Weber, busca explicar a organização formal como um sistema racional, estruturado e impessoal. 
+      Seu objetivo é aumentar eficiência, previsibilidade e controle. Porém, quando aplicada de forma excessiva, pode gerar rigidez, papelório, resistência à mudança e mau atendimento ao público.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>1. Origem e lógica da Teoria da Burocracia</h3>
+    <p>
+      A Teoria da Burocracia surge depois da Teoria Clássica e da Teoria das Relações Humanas. 
+      Ela aparece como uma tentativa de oferecer uma visão mais generalista e integrada das organizações, centrada na estrutura e na racionalidade.
+    </p>
+    <p>
+      Para Weber, a burocracia está associada à racionalização da vida social e econômica. 
+      A organização moderna precisa de regras claras, cargos definidos, hierarquia, registros formais e critérios técnicos para funcionar com previsibilidade.
+    </p>
+
+    <div class="attention">
+      <strong>Ponto-chave:</strong> no sentido técnico de Weber, burocracia não significa “lentidão” ou “papelada”. 
+      Significa uma forma racional de organizar o trabalho. As lentidões e excessos aparecem como disfunções.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>2. Tipos de sociedade segundo Weber</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Tipo de sociedade</th>
+          <th>Base de funcionamento</th>
+          <th>Características</th>
+          <th>Exemplos</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Sociedade tradicional</td>
+          <td>Costumes, tradição e autoridade patriarcal.</td>
+          <td>Patrimonialismo, poder herdado, relações baseadas em costumes.</td>
+          <td>Família, clã, sociedade medieval.</td>
+        </tr>
+        <tr>
+          <td>Sociedade carismática</td>
+          <td>Influência pessoal do líder.</td>
+          <td>Personalismo, arbitrariedade, mística, mobilização emocional.</td>
+          <td>Grupos revolucionários, partidos políticos, movimentos centrados em líder.</td>
+        </tr>
+        <tr>
+          <td>Sociedade legal-racional ou burocrática</td>
+          <td>Normas impessoais e racionalidade dos meios e fins.</td>
+          <td>Regras, cargos, leis, procedimentos, hierarquia e competência técnica.</td>
+          <td>Empresas, Estados modernos, exércitos.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>3. Características centrais da burocracia</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>Característica</th>
+          <th>Explicação</th>
+          <th>Exemplo prático</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Caráter legal das normas</td>
+          <td>A organização funciona com regras escritas previamente definidas.</td>
+          <td>Regimento interno, política de compras, manual de conduta.</td>
+        </tr>
+        <tr>
+          <td>Caráter formal das comunicações</td>
+          <td>As decisões e procedimentos são documentados para comprovação.</td>
+          <td>E-mails oficiais, relatórios, memorandos, atas.</td>
+        </tr>
+        <tr>
+          <td>Divisão racional do trabalho</td>
+          <td>As tarefas são distribuídas de forma sistemática conforme objetivos.</td>
+          <td>Financeiro, RH, comercial, operações, atendimento.</td>
+        </tr>
+        <tr>
+          <td>Impessoalidade</td>
+          <td>A distribuição de atividades ocorre por cargos e funções, não por preferências pessoais.</td>
+          <td>Promoção baseada em critérios, não em amizade.</td>
+        </tr>
+        <tr>
+          <td>Hierarquia da autoridade</td>
+          <td>Há níveis de chefia, autoridade e subordinação.</td>
+          <td>Analista responde ao coordenador, que responde ao gerente.</td>
+        </tr>
+        <tr>
+          <td>Rotinas e procedimentos padronizados</td>
+          <td>Regras orientam o desempenho e reduzem improvisos.</td>
+          <td>Fluxo de aprovação de compra ou atendimento ao cliente.</td>
+        </tr>
+        <tr>
+          <td>Competência técnica e meritocracia</td>
+          <td>Seleção, admissão e promoção devem considerar mérito e capacidade.</td>
+          <td>Processo seletivo, avaliação de desempenho e critérios técnicos.</td>
+        </tr>
+        <tr>
+          <td>Separação entre propriedade e administração</td>
+          <td>O administrador é profissional da gestão, não necessariamente dono do negócio.</td>
+          <td>Executivo contratado para gerir uma empresa de acionistas.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>4. Vantagens da burocracia</h3>
+    <div class="grid3">
+      <div class="box practice"><strong>Previsibilidade</strong><p>As pessoas sabem o que fazer, como fazer e a quem reportar.</p></div>
+      <div class="box practice"><strong>Padronização</strong><p>Rotinas reduzem variação e aumentam controle operacional.</p></div>
+      <div class="box practice"><strong>Redução de conflitos</strong><p>Cargos, regras e responsabilidades diminuem ambiguidades.</p></div>
+      <div class="box practice"><strong>Confiabilidade</strong><p>Regras formais tornam o funcionamento menos dependente de indivíduos.</p></div>
+      <div class="box practice"><strong>Precisão</strong><p>Há definição clara de cargos, operações, autoridades e processos.</p></div>
+      <div class="box practice"><strong>Eficiência</strong><p>A racionalidade busca rapidez, clareza e alcance dos objetivos organizacionais.</p></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>5. Disfunções da burocracia</h3>
+    <p>
+      Para Weber, a burocracia era a forma eficiente por excelência. Porém, Merton identificou consequências não previstas, chamadas de disfunções burocráticas. 
+      Elas surgem quando o modelo formal interage com o comportamento humano e perde flexibilidade.
+    </p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Disfunção</th>
+          <th>O que significa</th>
+          <th>Risco prático</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Internalização das regras</td>
+          <td>As normas deixam de ser meio e viram fim.</td>
+          <td>A pessoa segue regra mesmo quando ela prejudica o resultado.</td>
+        </tr>
+        <tr>
+          <td>Excesso de formalismo e papelório</td>
+          <td>Tudo precisa ser documentado, aprovado e registrado em excesso.</td>
+          <td>Lentidão, retrabalho e queda de produtividade.</td>
+        </tr>
+        <tr>
+          <td>Resistência a mudanças</td>
+          <td>A organização rejeita inovação por apego à rotina.</td>
+          <td>Perda de competitividade.</td>
+        </tr>
+        <tr>
+          <td>Despersonalização do relacionamento</td>
+          <td>As pessoas são tratadas pelos cargos, não como indivíduos.</td>
+          <td>Baixa empatia, clima ruim e distanciamento interno.</td>
+        </tr>
+        <tr>
+          <td>Categorização decisorial</td>
+          <td>Quem tem cargo mais alto decide, mesmo sem maior conhecimento técnico.</td>
+          <td>Decisões ruins por hierarquia excessiva.</td>
+        </tr>
+        <tr>
+          <td>Superconformidade às rotinas</td>
+          <td>Funcionários seguem procedimentos de forma mecânica.</td>
+          <td>Baixa criatividade e baixa capacidade de adaptação.</td>
+        </tr>
+        <tr>
+          <td>Sinais de autoridade</td>
+          <td>Uso exagerado de símbolos de poder e status.</td>
+          <td>Distância entre chefia e equipe.</td>
+        </tr>
+        <tr>
+          <td>Dificuldade no atendimento ao público</td>
+          <td>Foco interno excessivo, com baixa orientação ao cliente.</td>
+          <td>Cliente mal atendido e processos sem visão de valor.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h3>6. Dimensões da burocracia</h3>
+    <p>
+      A burocracia não deve ser vista apenas como presente ou ausente. O material apresenta a ideia de continuum: organizações podem ter graus diferentes de burocratização.
+    </p>
+    <ul>
+      <li>Divisão do trabalho baseada na especialização funcional.</li>
+      <li>Hierarquia de autoridade.</li>
+      <li>Sistema de regras e regulamentos.</li>
+      <li>Formalização das comunicações.</li>
+      <li>Impessoalidade no relacionamento entre pessoas.</li>
+      <li>Seleção e promoção baseadas na competência técnica.</li>
+    </ul>
+
+    <div class="practice">
+      <strong>Aplicação prática:</strong> uma empresa pode ser muito burocrática em regras e pouco burocrática em divisão do trabalho. 
+      Por exemplo: ter muitos formulários e aprovações, mas cargos mal definidos. Por isso, o grau de burocratização varia por dimensão.
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>7. Temas relacionados para ampliar a revisão</h3>
+    <div class="grid">
+      <div class="box related">
+        <strong>Teoria Clássica</strong>
+        <p>Também valoriza estrutura, eficiência e divisão do trabalho, mas com outro foco teórico.</p>
+      </div>
+      <div class="box related">
+        <strong>Relações Humanas</strong>
+        <p>Contraponto importante: considera fatores humanos, motivação e relações sociais.</p>
+      </div>
+      <div class="box related">
+        <strong>Governança corporativa</strong>
+        <p>Regras, responsabilidades, controles e separação entre propriedade e gestão.</p>
+      </div>
+      <div class="box related">
+        <strong>Gestão por processos</strong>
+        <p>Padronização pode gerar eficiência, desde que não vire rigidez operacional.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>8. Possíveis temas de prova — Material 2</h3>
+    <div class="exam">
+      <ol class="questoes">
+        <li><strong>Conceitual:</strong> explique a Teoria da Burocracia de Max Weber.</li>
+        <li><strong>Origem:</strong> indique por que a burocracia surge como abordagem estrutural e racional das organizações.</li>
+        <li><strong>Tipos de sociedade:</strong> diferencie sociedade tradicional, carismática e legal-racional.</li>
+        <li><strong>Características:</strong> explique formalização, hierarquia, impessoalidade, competência técnica e divisão do trabalho.</li>
+        <li><strong>Vantagens:</strong> mostre como a burocracia gera previsibilidade, padronização, controle e eficiência.</li>
+        <li><strong>Disfunções:</strong> explique como excesso de regras e formalismo pode gerar ineficiência.</li>
+        <li><strong>Comparação:</strong> diferencie burocracia no sentido técnico de Weber e burocracia no sentido popular.</li>
+        <li><strong>Estudo de caso:</strong> identifique disfunções burocráticas em uma empresa com demora, papelório e mau atendimento ao cliente.</li>
+        <li><strong>Continuum:</strong> explique por que organizações podem ter diferentes graus de burocratização.</li>
+        <li><strong>Aplicação:</strong> dê exemplo de uma burocracia eficiente e de uma burocracia disfuncional.</li>
+      </ol>
+    </div>
+  </div>
+
+</section>
+</main>
+</body>
+</html>
