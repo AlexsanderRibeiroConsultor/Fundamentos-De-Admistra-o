@@ -43,11 +43,13 @@ def callback(code: str):
 
 @app.get("/me")
 def me():
-    token = "COLE_SEU_ACCESS_TOKEN_AQUI"
+    token = "Pqce6DEJ6EWxGw1C2WFufCek3MflBueG"
 
     headers = {
         "Authorization": f"Bearer {token}"
     }
 
-    response = requests.get("https://api.mercadolibre.com/users/me", headers=headers)
+    response = requests.get("https://api.mercadolibre.com/users/8950442066920082
+
+", headers=headers)
     return response.json()
