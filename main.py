@@ -11,3 +11,13 @@ def me():
 
     response = requests.get("https://api.mercadolibre.com/users/me", headers=headers)
     return response.json()
+@app.get("/me")
+def me():
+    token = "COLE_SEU_ACCESS_TOKEN_AQUI"
+
+    headers = {
+        "Authorization": f"Bearer {token}"
+    }
+
+    response = requests.get("https://api.mercadolibre.com/users/me", headers=headers)
+    return response.json()
