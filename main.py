@@ -1,4 +1,4 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI
 from fastapi.responses import RedirectResponse
 import requests
 
@@ -7,6 +7,9 @@ app = FastAPI()
 CLIENT_ID = "8950442066920082"
 CLIENT_SECRET = "Pqce6DEJ6EWxGw1C2WFufCek3MflBueG"
 REDIRECT_URI = "https://ml-backend-kndd.onrender.com/callback"
+
+ACCESS_TOKEN = "APP_USR-8950442066920082-042921-721cc933987d8a8b7e1c5f64d7e568b6"
+SELLER_ID = "2563305389"
 
 
 @app.get("/")
@@ -32,26 +35,28 @@ def callback(code: str):
         "redirect_uri": REDIRECT_URI
     }
 
-    headers = {
-        "accept": "application/json",
-        "content-type": "application/x-www-form-urlencoded"
-    }
-
-    response = requests.post(url, data=payload, headers=headers)
+    response = requests.post(url, data=payload)
     return response.json()
 
 
 @app.get("/orders")
 def orders():
-    token = "Pqce6DEJ6EWxGw1C2WFufCek3MflBueG"
-    user_id = "8950442066920082"
-
-    headers = {
-        "Authorization": f"Bearer {token}"
-    }
+    headers = {"Authorization": f"Bearer {ACCESS_TOKEN}"}
 
     response = requests.get(
-        f"https://api.mercadolibre.com/orders/search?seller={user_id}",
+        f"https://api.mercadolibre.com/orders/search?seller={SELLER_ID}",
+        headers=headers
+    )
+
+    return response.json()
+
+
+@app.get("/items")
+def items():
+    headers = {"Authorization": f"Bearer {ACCESS_TOKEN}"}
+
+    response = requests.get(
+        f"https://api.mercadolibre.com/users/{SELLER_ID}/items/search",
         headers=headers
     )
 
