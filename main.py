@@ -59,7 +59,7 @@ def items():
         headers=headers
     )
 
-    return response.json()
+return response.json()
 
 
 @app.get("/orders")
@@ -70,6 +70,20 @@ def orders():
 
     response = requests.get(
         f"https://api.mercadolibre.com/orders/search?seller={SELLER_ID}",
+        headers=headers
+    )
+
+    return response.json()
+
+
+@app.get("/test")
+def test():
+    headers = {
+        "Authorization": f"Bearer {ACCESS_TOKEN}"
+    }
+
+    response = requests.get(
+        "https://api.mercadolibre.com/users/me",
         headers=headers
     )
 
