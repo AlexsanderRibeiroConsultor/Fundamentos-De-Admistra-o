@@ -59,7 +59,8 @@ def items():
         headers=headers
     )
 
-return response.json()
+    return response.json()
+
 
 @app.get("/orders")
 def orders():
