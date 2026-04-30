@@ -11,7 +11,6 @@ REDIRECT_URI = "https://ml-backend-kndd.onrender.com/callback"
 ACCESS_TOKEN = "APP_USR-8950442066920082-042921-721cc933987d8a8b7e1c5f64d7e568b6"
 SELLER_ID = "2563305389"
 
-
 @app.get("/")
 def home():
     return {"status": "ok"}
@@ -19,7 +18,12 @@ def home():
 
 @app.get("/login")
 def login():
-    url = f"https://auth.mercadolivre.com.br/authorization?response_type=code&client_id={CLIENT_ID}&redirect_uri={REDIRECT_URI}"
+    url = (
+        "https://auth.mercadolivre.com.br/authorization"
+        f"?response_type=code"
+        f"&client_id={CLIENT_ID}"
+        f"&redirect_uri={REDIRECT_URI}"
+    )
     return RedirectResponse(url)
 
 
@@ -35,28 +39,37 @@ def callback(code: str):
         "redirect_uri": REDIRECT_URI
     }
 
-    response = requests.post(url, data=payload)
+    headers = {
+        "accept": "application/json",
+        "content-type": "application/x-www-form-urlencoded"
+    }
+
+    response = requests.post(url, data=payload, headers=headers)
     return response.json()
 
 
-@app.get("/orders")
-def orders():
-    headers = {"Authorization": f"Bearer {ACCESS_TOKEN}"}
+@app.get("/items")
+def items():
+    headers = {
+        "Authorization": f"Bearer {ACCESS_TOKEN}"
+    }
 
     response = requests.get(
-        f"https://api.mercadolibre.com/orders/search?seller={SELLER_ID}",
+        "https://api.mercadolibre.com/users/me/items/search",
         headers=headers
     )
 
     return response.json()
 
 
-@app.get("/items")
-def items():
-    headers = {"Authorization": f"Bearer {ACCESS_TOKEN}"}
+@app.get("/orders")
+def orders():
+    headers = {
+        "Authorization": f"Bearer {ACCESS_TOKEN}"
+    }
 
     response = requests.get(
-        f"https://api.mercadolibre.com/users/{SELLER_ID}/items/search",
+        f"https://api.mercadolibre.com/orders/search?seller={SELLER_ID}",
         headers=headers
     )
 
